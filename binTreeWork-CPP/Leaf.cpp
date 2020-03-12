@@ -1,24 +1,29 @@
 /*
 * @Author: Baptiste
 * @Date:   2020-02-24 18:29:10
-* @Last Modified by:   Baptiste
-* @Last Modified time: 2020-02-24 18:30:50
+* @Last Modified by:   Baptiste Bertrand-Rapello
+* @Last Modified time: 2020-03-12 17:06:54
 */
 
-class Leaf
+#include "Leaf.hh"
+
+Leaf::Leaf(int v) : _value(v)  {
+	_left = NULL ;
+	_right = NULL ;
+}
+
+Leaf::~Leaf() {
+
+}
+
+int Leaf::getValue() const
 {
-public:
-	Leaf();
-	~Leaf();
+	return _value;
+}
 
-private:
-	Leaf *_left;
-	Leaf *_right;
-	int _value;
+std::ostream & operator<<(std::ostream & os, Leaf const & lf)
+{
+	os << "The value is this leaf is : " << lf.getValue();
+	return os;
+}
 
-public:
-	bool isInside(int nb);
-	Leaf &find(int nb);
-
-
-};
